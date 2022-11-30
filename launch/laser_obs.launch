@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+  <include file="$(find rplidar_ros)/launch/rplidar_s1.launch" />
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filters" output='screen'>
+    <rosparam command="load" file="$(find base_model)/config/laser_filter.yaml"/>
+  </node>
+
+  <node pkg="base_model" type="laser_stop.py" name="laser_stop" output='screen'/>
+
+</launch>

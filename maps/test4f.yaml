@@ -1,0 +1,7 @@
+image: test4f.pgm
+resolution: 0.050000
+origin: [-31.306097, -8.969458, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

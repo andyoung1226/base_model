@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- UART -->
+  <node pkg="base_model" type="uart.py" name="uart_pub"/>
+  <node pkg="base_model" type="uart_sub.py" name="uart_sub"/>
+  <node pkg="imu_classfication" type="data_pub.py" name="data_pub"/>
+
+  <!-- Sensors -->
+  <include file="$(find razor_imu_9dof)/launch/razor-pub.launch"/>
+
+</launch>

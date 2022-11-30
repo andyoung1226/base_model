@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- UART -->
+  <node pkg="base_model" type="uart_mode_sub.py" name="uart_mode_sub" output="screen"/>
+  <node pkg="base_model" type="mwc_uart_sub.py" name="uart_sub"/>
+ 
+  <!-- Map server -->
+  <node pkg="map_server" name="map_server" type="map_server" args="$(find base_model)/maps/mwc.yaml"/>
+  
+  <!-- AMCL --> 
+  <include file="$(find amcl)/examples/amcl_diff.launch"/>
+  <node pkg="base_model" type="amcl_odom_pub.py" name="amcl_odom"/>
+  
+  <!-- move_base -->
+  <include file="$(find base_model)/launch/include/move_base.launch"/>
+  
+</launch>
